@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class Sequencer {
 	
-	public String sequence, subsequence;
+	public String sequence;
 	
 	public Sequencer(String x) {
-		System.out.println("Sequence: "+x);
-		System.out.println("Subsequence: "+function1(x));
+		sequence = x;
+		//System.out.println("Sequence: "+x);
+		//System.out.println("Subsequence: "+function1(x));
 	}
 	
 	public String getSeq() {
-		return subsequence;
+		return sequence;
 	}
 	
 	public String function1(String x) {
