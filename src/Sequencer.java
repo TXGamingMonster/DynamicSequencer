@@ -51,14 +51,15 @@ public class Sequencer {
 			String first = "" + temp.charAt(i);
 			///get the possible midsections
 			String middle1 = longPalSeq(temp.substring(i+1, j+1), i, j-1);
+			System.out.println(temp+": "+middle1);
 			String middle2 = longPalSeq(temp.substring(i, j), i, j-1);
 			String middle = "";
 			//figure out which midsection is longer.
 			if(middle1.length() > middle2.length()){
-				middle = middle1;
+				middle += middle1;
 			}
 			else{
-				middle = middle2;
+				middle += middle2;
 			}
 			char last = temp.charAt(j);
 			return (first += middle + last);
