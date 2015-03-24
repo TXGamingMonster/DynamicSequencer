@@ -1,8 +1,10 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Sequencer {
 	
 	public String sequence;
+	public HashMap<String, String> palindromes = new HashMap<String, String>();
 	
 	public Sequencer(String x) {
 		sequence = x;
@@ -32,11 +34,16 @@ public class Sequencer {
 		//base cases
 		//return the character if string length is one.
 		if(i == j){
+			palindromes.put(temp, s);
 			return temp;
 		}
 		//return the two characters if length is two and they match
 		if(i+1 == j && temp.charAt(i) == temp.charAt(j)){
+			palindromes.put(temp, s);
 			return temp;
+		}
+		else if(i+1 == j){
+			return ""+temp.charAt(0);
 		}
 		// do the first and last chars match? return recursive value of inside chars
 		if(temp.charAt(i) 
@@ -44,6 +51,7 @@ public class Sequencer {
 			String first = "" + temp.charAt(i);
 			String middle = longPalSeq(temp.substring(i+1, j), i, j-2);
 			char last = temp.charAt(j);
+			
 			return (first += middle + last);
 		}
 		//if they dont match, return the longer of i+1 to j, and i to j-1.
