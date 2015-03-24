@@ -72,5 +72,6 @@ public class Sequencer {
 		Sequencer s = new Sequencer("ACGTGTCAAAATCG");
 		//Sequencer s = new Sequencer(sc.nextLine());
 		//System.out.println(s.getSeq());
+		System.out.println(s.longPalSeq(s.getSeq(), 0, s.getSeq().length()-1));
 	}
 }
