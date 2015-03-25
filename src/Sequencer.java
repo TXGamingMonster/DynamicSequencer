@@ -29,48 +29,48 @@ public class Sequencer {
 		return x;
 	}
 	
-	public String longPalSeq(String s, int i, int j){
+	public String longPalSeq(String s){
 		String temp = s;
 		//base cases
 		//return the character if string length is one.
-		if(i == j){
+		if(temp.length() == 1){
 			palindromes.put(temp, s);
 			return temp;
 		}
 		//return the two characters if length is two and they match
-		if(i+1 == j && temp.charAt(i) == temp.charAt(j)){
+		if(temp.length() == 2 && temp.charAt(0) == temp.charAt(1)){
 			palindromes.put(temp, s);
 			return temp;
 		}
-		else if(i+1 == j){
+		if(temp.length() == 2){
 			return ""+temp.charAt(0);
 		}
 		// do the first and last chars match? return recursive value of inside chars
-		if(temp.charAt(i) 
-				== temp.charAt(j)){
-			String first = "" + temp.charAt(i);
-			String middle = longPalSeq(temp.substring(i+1, j), i, j-2);
-			char last = temp.charAt(j);
-			
-			return (first += middle + last);
+		if(temp.charAt(0) == temp.charAt(temp.length()-1)){
+			String first = "" + temp.charAt(0);
+			//System.out.println(temp.substring(1, temp.length()-1));
+			String middle = longPalSeq(temp.substring(1, temp.length()-1));
+			char last = temp.charAt(temp.length()-1);
+			palindromes.put(temp, (first + middle + last));
+			return (first + middle + last);
 		}
 		//if they dont match, return the longer of i+1 to j, and i to j-1.
-		if(temp.charAt(i) != temp.charAt(j)){
-			String first = "" + temp.charAt(i);
+		if(temp.charAt(0) != temp.charAt(temp.length()-1)){
+			String first = "" + temp.charAt(0);
 			///get the possible midsections
-			String middle1 = longPalSeq(temp.substring(i+1, j+1), i, j-1);
-			System.out.println(temp+": "+middle1);
-			String middle2 = longPalSeq(temp.substring(i, j), i, j-1);
+			String middle1 = longPalSeq(temp.substring(1, temp.length()));
+			String middle2 = longPalSeq(temp.substring(0, temp.length()-1));
 			String middle = "";
 			//figure out which midsection is longer.
 			if(middle1.length() > middle2.length()){
-				middle += middle1;
+				middle = middle1;
 			}
 			else{
-				middle += middle2;
+				middle = middle2;
 			}
-			char last = temp.charAt(j);
-			return (first += middle + last);
+			char last = temp.charAt(temp.length()-1);
+			palindromes.put(temp, middle);
+			return (middle);
 		}
 		//return null if the above didn't return anything;
 		return null;
@@ -82,6 +82,6 @@ public class Sequencer {
 		Sequencer s = new Sequencer("ACGTGTCAAAATCG");
 		//Sequencer s = new Sequencer(sc.nextLine());
 		//System.out.println(s.getSeq());
-		System.out.println(s.longPalSeq(s.getSeq(), 0, s.getSeq().length()-1));
+		System.out.println(s.longPalSeq(s.getSeq()));
 	}
 }
