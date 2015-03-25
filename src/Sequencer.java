@@ -8,11 +8,6 @@ public class Sequencer {
 	
 	public Sequencer(String x) {
 		sequence = x;
-<<<<<<< HEAD
-=======
-		//System.out.println("Sequence: "+x);
-		//System.out.println("Subsequence: "+function1(x));
->>>>>>> 77b2767debc919f902c14acebed630906c54984e
 		System.out.println(longPalSeq(x));
 	}
 	//return the passed in sequence.
@@ -72,15 +67,10 @@ public class Sequencer {
 	}
 	//main to run the algorithm
 	public static void main(String[] args) {
-		
+		Sequencer s = new Sequencer("acgtgtcaaaatcg");
 		Scanner sc = new Scanner(System.in);
 		//System.out.print("Enter sequence: ");
 		long start = System.currentTimeMillis();
-<<<<<<< HEAD
-		Sequencer s = new Sequencer("ACGTGTCAAAATCG");
-=======
-		Sequencer s = new Sequencer("ACGTGTCAAAATCGAGTC");
->>>>>>> 77b2767debc919f902c14acebed630906c54984e
 		System.out.println(System.currentTimeMillis()-start);
 		//Sequencer s = new Sequencer(sc.nextLine());
 		//System.out.println(s.getSeq());
@@ -90,11 +80,7 @@ public class Sequencer {
 		System.out.println(System.currentTimeMillis()-start);
 		
 		start = System.currentTimeMillis();
-<<<<<<< HEAD
 		s = new Sequencer("AGGGGTCAAAACTGGTTCGTAGCTAGCTAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTA");
-=======
-		s = new Sequencer("AGGGGTCAAAACTGGTTCGTAGCTAGCTAGCTACAAAGTTCCTAAG");
->>>>>>> 77b2767debc919f902c14acebed630906c54984e
 		System.out.println(System.currentTimeMillis()-start);
 		
 		start = System.currentTimeMillis();
