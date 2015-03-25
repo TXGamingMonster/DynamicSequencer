@@ -8,7 +8,8 @@ public class Sequencer {
 	
 	public Sequencer(String x) {
 		sequence = x;
-		System.out.println(longPalSeq(x));
+		System.out.println(x);
+		System.out.println("Sequence: "+longPalSeq(x));
 	}
 	//return the passed in sequence.
 	public String getSeq() {
@@ -67,24 +68,41 @@ public class Sequencer {
 	}
 	//main to run the algorithm
 	public static void main(String[] args) {
-		Sequencer s = new Sequencer("acgtgtcaaaatcg");
-		Scanner sc = new Scanner(System.in);
-		//System.out.print("Enter sequence: ");
+		
+		//Results in CTAAAATC
 		long start = System.currentTimeMillis();
-		System.out.println(System.currentTimeMillis()-start);
-		//Sequencer s = new Sequencer(sc.nextLine());
-		//System.out.println(s.getSeq());
-		//System.out.println(s.longPalSeq(s.getSeq()));
+		System.out.print("String: ");
+		Sequencer s = new Sequencer("ACGTGTCAAAATCG");
+		System.out.println("Runtime: "+(System.currentTimeMillis()-start));
+		
+		//Results in AGTTCCTTGA
+		System.out.print("String: ");
 		start = System.currentTimeMillis();
-		s = new Sequencer("RACECAR");
+		s = new Sequencer("AGTTTCCTTGAAGCTA");
 		System.out.println(System.currentTimeMillis()-start);
 		
+		//Result is the same as input, used for runtime testing
+		System.out.print("String: ");
+		start = System.currentTimeMillis();
+		s = new Sequencer("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		System.out.println(System.currentTimeMillis()-start);
+		
+		//Results in ATCCTTGAACATCAATCCTAACTCAATCCTAACTCAATCCTAACTCAATCCTAACTCAATCCTAACTCAATCCTAACTACAAGTTCCTA
+		System.out.print("String: ");
 		start = System.currentTimeMillis();
 		s = new Sequencer("AGGGGTCAAAACTGGTTCGTAGCTAGCTAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTA");
 		System.out.println(System.currentTimeMillis()-start);
 		
+		//Results in A
+		System.out.print("String: ");
 		start = System.currentTimeMillis();
-		s = new Sequencer("RACECAR");
+		s = new Sequencer("ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789/*()_+!@#$%^&`~;:?><");
 		System.out.println(System.currentTimeMillis()-start);
+		
+		//Results in AGTCAATCTAACTGA
+		start = System.currentTimeMillis();
+		System.out.print("String: ");
+		s = new Sequencer("AGTCGAATCGTAACCTAGGGAACCCCTT");
+		System.out.println("Runtime: "+(System.currentTimeMillis()-start));
 	}
 }
