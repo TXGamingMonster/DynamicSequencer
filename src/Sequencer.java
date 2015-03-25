@@ -8,30 +8,20 @@ public class Sequencer {
 	
 	public Sequencer(String x) {
 		sequence = x;
-		//System.out.println("Sequence: "+x);
-		//System.out.println("Subsequence: "+function1(x));
+		System.out.println(longPalSeq(x));
 	}
-	
+	//return the passed in sequence.
 	public String getSeq() {
 		return sequence;
-	}
-	
-	public String function1(String x) {
-		for(int i=0;i<x.length();i++)
-		{
-			for(int j=1;j<=x.length()-i;j++)
-			{
-				String s = x.substring(i,i+j);
-				if(s.length() > 1 && s.charAt(0)==s.charAt(s.length()-1))
-					System.out.println(s);
-			}
-		}
-		return x;
 	}
 	
 	public String longPalSeq(String s){
 		String temp = s;
 		//base cases
+		//check if the value has already been found for this sequence
+		if(palindromes.containsKey(temp)){
+			return palindromes.get(temp);
+		}
 		//return the character if string length is one.
 		if(temp.length() == 1){
 			palindromes.put(temp, s);
@@ -75,13 +65,26 @@ public class Sequencer {
 		//return null if the above didn't return anything;
 		return null;
 	}
-	
+	//main to run the algorithm
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		//System.out.print("Enter sequence: ");
+		long start = System.currentTimeMillis();
 		Sequencer s = new Sequencer("ACGTGTCAAAATCG");
+		System.out.println(System.currentTimeMillis()-start);
 		//Sequencer s = new Sequencer(sc.nextLine());
 		//System.out.println(s.getSeq());
-		System.out.println(s.longPalSeq(s.getSeq()));
+		//System.out.println(s.longPalSeq(s.getSeq()));
+		start = System.currentTimeMillis();
+		s = new Sequencer("RACECAR");
+		System.out.println(System.currentTimeMillis()-start);
+		
+		start = System.currentTimeMillis();
+		s = new Sequencer("AGGGGTCAAAACTGGTTCGTAGCTAGCTAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTAAGCTACAAAGTTCCTA");
+		System.out.println(System.currentTimeMillis()-start);
+		
+		start = System.currentTimeMillis();
+		s = new Sequencer("RACECAR");
+		System.out.println(System.currentTimeMillis()-start);
 	}
 }
