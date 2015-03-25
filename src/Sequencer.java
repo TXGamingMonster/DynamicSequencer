@@ -10,6 +10,7 @@ public class Sequencer {
 		sequence = x;
 		//System.out.println("Sequence: "+x);
 		//System.out.println("Subsequence: "+function1(x));
+		System.out.println(longPalSeq(x));
 	}
 	
 	public String getSeq() {
@@ -77,11 +78,25 @@ public class Sequencer {
 	}
 	
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		//System.out.print("Enter sequence: ");
-		Sequencer s = new Sequencer("ACGTGTCAAAATCG");
+		long start = System.currentTimeMillis();
+		Sequencer s = new Sequencer("ACGTGTCAAAATCGAGTC");
+		System.out.println(System.currentTimeMillis()-start);
 		//Sequencer s = new Sequencer(sc.nextLine());
 		//System.out.println(s.getSeq());
-		System.out.println(s.longPalSeq(s.getSeq()));
+		//System.out.println(s.longPalSeq(s.getSeq()));
+		start = System.currentTimeMillis();
+		s = new Sequencer("RACECAR");
+		System.out.println(System.currentTimeMillis()-start);
+		
+		start = System.currentTimeMillis();
+		s = new Sequencer("AGGGGTCAAAACTGGTTCGTAGCTAGCTAGCTACAAAGTTCCTAAG");
+		System.out.println(System.currentTimeMillis()-start);
+		
+		start = System.currentTimeMillis();
+		s = new Sequencer("RACECAR");
+		System.out.println(System.currentTimeMillis()-start);
 	}
 }
